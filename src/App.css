@@ -1,0 +1,246 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1rem;
+  --background: #F5F3EE;
+  --foreground: #2C3E5E;
+  --card: #FFFFFF;
+  --card-foreground: #2C3E5E;
+  --popover: #FFFFFF;
+  --popover-foreground: #2C3E5E;
+  --primary: #2C3E5E;
+  --primary-foreground: #FFFFFF;
+  --secondary: #A8C5DD;
+  --secondary-foreground: #2C3E5E;
+  --muted: #F5F3EE;
+  --muted-foreground: #6B7280;
+  --accent: #FF6B35;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #FF6B35;
+  --chart-1: #FF6B35;
+  --chart-2: #2C3E5E;
+  --chart-3: #A8C5DD;
+  --chart-4: #F5F3EE;
+  --chart-5: #6B7280;
+  --navy-blue: #2C3E5E;
+  --light-beige: #F5F3EE;
+  --orange: #FF6B35;
+  --light-blue: #A8C5DD;
+  --green-accent: #7FD858;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .text-navy {
+    color: var(--navy-blue);
+  }
+  
+  .bg-navy {
+    background-color: var(--navy-blue);
+  }
+  
+  .text-orange {
+    color: var(--orange);
+  }
+  
+  .bg-orange {
+    background-color: var(--orange);
+  }
+  
+  .bg-beige {
+    background-color: var(--light-beige);
+  }
+  
+  .bg-light-blue {
+    background-color: var(--light-blue);
+  }
+  
+  .text-green {
+    color: var(--green-accent);
+  }
+  
+  .border-green {
+    border-color: var(--green-accent);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-count-up {
+  animation: countUp 0.5s ease-out forwards;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+  border: 2px solid var(--green-accent);
+  color: var(--green-accent);
+  background: transparent;
+}
+
+.btn-primary:hover {
+  background: var(--green-accent);
+  color: white;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 rounded-full font-medium transition-all duration-300;
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: var(--orange);
+  color: white;
+}
+
+/* Card styles */
+.feature-card {
+  @apply rounded-3xl p-8 transition-all duration-300;
+  background: rgba(168, 197, 221, 0.2);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+.heading-xl {
+  @apply text-4xl md:text-5xl lg:text-6xl font-normal;
+}
+
+.heading-lg {
+  @apply text-3xl md:text-4xl lg:text-5xl font-normal;
+}
+
+.heading-md {
+  @apply text-2xl md:text-3xl lg:text-4xl font-normal;
+}
+
+.heading-sm {
+  @apply text-xl md:text-2xl font-normal;
+}
+
+/* Section backgrounds */
+.section-navy {
+  background-color: var(--navy-blue);
+  color: white;
+}
+
+.section-beige {
+  background-color: var(--light-beige);
+  color: var(--navy-blue);
+}
