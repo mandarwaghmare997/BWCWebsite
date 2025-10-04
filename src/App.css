@@ -244,3 +244,17 @@ html {
   background-color: var(--light-beige);
   color: var(--navy-blue);
 }
+
+/* Badge rotation animation */
+@keyframes rotate-badge {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate-badge {
+  animation: rotate-badge 20s linear infinite;
+}

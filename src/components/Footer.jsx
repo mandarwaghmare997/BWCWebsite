@@ -19,9 +19,9 @@ const Footer = () => {
               <a href="#contact" className="block hover:text-orange transition-colors">
                 Contact
               </a>
-              <a href="#" className="block hover:text-green transition-colors">
+              <Link to="/fee-illustration" className="block hover:text-green transition-colors">
                 Fee Illustration
-              </a>
+              </Link>
               <a 
                 href="https://app.bellwethercapital.in/wealthspectrum/app/loginWith"
                 target="_blank"

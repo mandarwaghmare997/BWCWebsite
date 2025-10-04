@@ -102,7 +102,7 @@ const HomePage = () => {
               transition={{ duration: 0.8 }}
               className="flex justify-center"
             >
-              <img src={valuingTomorrowBadge} alt="Valuing Tomorrow Since 2004" className="w-64 h-64 object-contain animate-spin-slow" style={{ animation: 'spin 20s linear infinite' }} />
+              <img src={valuingTomorrowBadge} alt="Valuing Tomorrow Since 2004" className="w-64 h-64 object-contain animate-rotate-badge" />
             </motion.div>
           </div>
         </div>
@@ -218,7 +218,12 @@ const HomePage = () => {
             Differentiated thinking, Disproportionate outcomes
           </motion.h2>
           
-          <div className="bg-white rounded-3xl p-8 mb-12 shadow-lg">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 mb-12 shadow-lg"
+          >
             <ResponsiveContainer width="100%" height={400}>
               <LineChart data={performanceData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -226,12 +231,12 @@ const HomePage = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="BELLWETHER" stroke="#FF6B35" strokeWidth={3} />
-                <Line type="monotone" dataKey="BSE500TRI" stroke="#2C3E5E" strokeWidth={2} />
-                <Line type="monotone" dataKey="NIFTY50" stroke="#A8C5DD" strokeWidth={2} />
+                <Line type="monotone" dataKey="BELLWETHER" stroke="#FF6B35" strokeWidth={3} animationDuration={2000} />
+                <Line type="monotone" dataKey="BSE500TRI" stroke="#2C3E5E" strokeWidth={2} animationDuration={2000} animationBegin={300} />
+                <Line type="monotone" dataKey="NIFTY50" stroke="#A8C5DD" strokeWidth={2} animationDuration={2000} animationBegin={600} />
               </LineChart>
             </ResponsiveContainer>
-          </div>
+          </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
@@ -333,7 +338,12 @@ const HomePage = () => {
             </motion.div>
           </div>
           
-          <div className="bg-white rounded-3xl p-8 shadow-lg">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-3xl p-8 shadow-lg"
+          >
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={barChartData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -341,12 +351,12 @@ const HomePage = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="BELLWETHER" fill="#FF6B35" />
-                <Bar dataKey="BSE500TRI" fill="#2C3E5E" />
-                <Bar dataKey="NIFTY50" fill="#A8C5DD" />
+                <Bar dataKey="BELLWETHER" fill="#FF6B35" animationDuration={1500} />
+                <Bar dataKey="BSE500TRI" fill="#2C3E5E" animationDuration={1500} animationBegin={200} />
+                <Bar dataKey="NIFTY50" fill="#A8C5DD" animationDuration={1500} animationBegin={400} />
               </BarChart>
             </ResponsiveContainer>
-          </div>
+          </motion.div>
         </div>
       </section>
 
